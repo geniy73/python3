@@ -19,10 +19,9 @@ def about(request):
     phonenumber = "8-923-600-01-02"
     email = "ivan@mail.ru"
     
-    text="""f"<p>Имя:<strong>{firstname}</strong></p>
+    text=f"""<p>Имя:<strong>{firstname}</strong></p>
                 <p>Отчество:<strong>{surname}</strong></p>
                 <p>Фамилия:<strong>{lastname}</strong></p>
                 <p>Телефон:<strong>{phonenumber}</strong></p>
-                <p>Эл.почта:<strong>{email}</strong></p>"
-        """
+                <p>Эл.почта:<strong>{email}</strong></p>"""
     return HttpResponse(text)
