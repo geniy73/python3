@@ -9,3 +9,17 @@ def home(request):
     <strong>Автор</strong>: <i>Губарев А.В.</i>
     """
     return HttpResponse(text)
+
+def about(request):
+    firstname = "Иван"
+    surname="Петрович"
+    lastname="Иванов"
+    phonenumber="8-923-600-01-02"
+    email="ivan@mail.ru"
+    text="""f'<p1>Имя:<strong>{firstname}</strong></p>/
+                <p>Отчество:<strong>{surname}</strong></p>/
+                <p>Фамилия:<strong>{lastname}</strong></p>/
+                <p>Телефон:<strong>{phonenumber}</strong></p>/
+                <p>Эл.почта:<strong>{email}</strong></p>'
+        """
+    return HttpResponse(text)
