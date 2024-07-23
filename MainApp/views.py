@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.http import HttpResponseNotFound
 from django.shortcuts import render
 from .models import Item
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 author = {
@@ -39,13 +40,11 @@ def about(request):
 
 def get_item(request, item_id):
     """ По указанному id возвращаем имя и кол-во элемента """
-    for item in Item.objects.all():
-        if item.id == item_id:
-            context = {
-                "item": item
-            }  
-            return render(request, 'item_page.html', context)
-    return HttpResponseNotFound(f"Item with id={item_id} not found.")
+    if Item.objects.get(id=item_id).id == item_id:
+        context = {
+                "item": Item.objects.get(id=item_id)
+                    }  
+        return render(request, 'item_page.html', context)
 
 def get_items(request):
     context = {
