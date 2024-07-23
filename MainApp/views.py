@@ -27,15 +27,14 @@ def home(request):
     return render(request, 'index.html', context)
 
 def about(request):
-    
-    text=f"""
-    <p>Имя: <strong>{author["Имя"]}</strong></p>
-    <p>Отчество: <strong>{author["Отчество"]}</strong></p>
-    <p>Фамилия: <strong>{author["Фамилия"]}</strong></p>
-    <p>Телефон: <strong>{author["Телефон"]}</strong></p>
-    <p>Эл.почта: <strong>{author["email"]}</strong></p>
-    """
-    return HttpResponse(text)
+    author = {
+        "name": "Иван",
+        "middle_name": "Петрович",
+        "last_name": "Иванов",
+        "phone": "8-923-600-01-02",
+        "email": "vasya@mail.ru",
+    }
+    return render(request, "about.html", {"author": author})
 
 def get_item(request, item_id):
     """ По указанному id возвращаем имя и кол-во элемента """
