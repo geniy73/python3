@@ -41,7 +41,10 @@ def get_item(request, item_id):
     """ По указанному id возвращаем имя и кол-во элемента """
     for item in items:
         if item['id'] == item_id:
-            return render(request, 'item_page.html', item)
+            context = {
+                "item": item
+            }         
+        return render(request, 'item_page.html', context)
     return HttpResponseNotFound(f"Item with id={item_id} not found.")
 
 def get_items(request):
