@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.http import HttpResponseNotFound
 from django.shortcuts import render
+from .models import Item
 
 # Create your views here.
 author = {
@@ -11,13 +12,13 @@ author = {
     "email" : "ivan@mail.ru",
 }
 
-items = [
-   {"id": 1, "name": "Кроссовки abibas" ,"quantity":5},
-   {"id": 2, "name": "Куртка кожаная" ,"quantity":2},
-   {"id": 5, "name": "Coca-cola 1 литр" ,"quantity":12},
-   {"id": 7, "name": "Картофель фри" ,"quantity":0},
-   {"id": 8, "name": "Кепка" ,"quantity":124},
-]
+# items = [
+#    {"id": 1, "name": "Кроссовки abibas" ,"quantity":5},
+#    {"id": 2, "name": "Куртка кожаная" ,"quantity":2},
+#    {"id": 5, "name": "Coca-cola 1 литр" ,"quantity":12},
+#    {"id": 7, "name": "Картофель фри" ,"quantity":0},
+#    {"id": 8, "name": "Кепка" ,"quantity":124},
+# ]
 
 def home(request):
     context = {
@@ -38,8 +39,8 @@ def about(request):
 
 def get_item(request, item_id):
     """ По указанному id возвращаем имя и кол-во элемента """
-    for item in items:
-        if item['id'] == item_id:
+    for item in Item.objects.all():
+        if item.id == item_id:
             context = {
                 "item": item
             }  
@@ -48,6 +49,6 @@ def get_item(request, item_id):
 
 def get_items(request):
     context = {
-        "items": items
+        "items": Item.objects.all()
     }
     return render(request, 'items_list.html', context)
