@@ -7,7 +7,11 @@
 </head>
 <body>
     <h2> Имя: {{item.name}} </h2>
+    {% if item.quantity %}
     <p> Количество: {{item.quantity}} </p>
+    {% else %}
+    <p> Товар отсутвствует! </p>
+    {% endif %} 
     <p><a href="/items">Назад к списку товаров </a></p>
 </body>
 </html>

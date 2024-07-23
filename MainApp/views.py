@@ -43,8 +43,8 @@ def get_item(request, item_id):
         if item['id'] == item_id:
             context = {
                 "item": item
-            }         
-        return render(request, 'item_page.html', context)
+            }  
+            return render(request, 'item_page.html', context)
     return HttpResponseNotFound(f"Item with id={item_id} not found.")
 
 def get_items(request):
