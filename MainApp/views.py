@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.http import HttpResponseNotFound
 from django.shortcuts import render
 
 # Create your views here.
@@ -10,7 +11,7 @@ author = {
     "email" : "ivan@mail.ru",
 }
 
-goods = [
+items = [
    {"id": 1, "name": "Кроссовки abibas" ,"quantity":5},
    {"id": 2, "name": "Куртка кожаная" ,"quantity":2},
    {"id": 5, "name": "Coca-cola 1 литр" ,"quantity":12},
@@ -36,29 +37,20 @@ def about(request):
     """
     return HttpResponse(text)
 
-def item(request, id):
-    ids = []
-    for x in goods:
-        idx = ids.append(x.get("id"))
-        if x.get("id") == id:
-            idx = x.get("id")
-            name = x.get("name")
-            quantity = x.get("quantity")
-    
-    if id == 10:
-        text = f'<h1>Товар с id=10 не найден!</h1>'
-    elif id not in ids:
-        text = f'<h1>Введен неверный код товара!</h1>'
-    else:
-        text = f"""<h1>Карточка товара</h1>
-             <p>Наименование: <strong>{name}</strong></p>
-             <p>Количество: <strong>{quantity} шт.</strong></p>
-             """
-    return HttpResponse(text)
+def get_item(request, item_id):
+    """ По указанному id возвращаем имя и кол-во элемента """
+    for item in items:
+        if item['id'] == item_id:
+            result = f"""
+            <h2> Имя: {item["name"]} </h2>
+            <p> Количество: {item["quantity"]} </p>
+            """
+            return HttpResponse(result)
+    return HttpResponseNotFound(f"Item with id={item_id} not found.")
 
-def items(request):
+def get_items(request):
 
-    for x in goods:
+    for x in items:
         idx = x.get("id")
         name = x.get("name")
         quantity = x.get("quantity")
