@@ -1,22 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main page</title>
-</head>
+{% extends "base.html" %}
+{% block  content%}
+<h1>Приветствую!</h1>
+Меня зовут <i>{{name}}</i><br>
+Моя почта: <i>{{email}}</i><br><br>
+Это главная страница сайта<br>
+<i>Сайт пока в разработке...</i>
+<p><a href="/items">Список товаров </a></p>
+{% endblock  %}
 
-<body>
-   
-    <header>
-        /<a href="/">Home</a>/<a href="/items">Items</a>/<a href="/about">About</a>
-    </header>
 
-    <h1>Приветствую!</h1>
-    Меня зовут <i>{{name}}</i><br>
-    Моя почта: <i>{{email}}</i><br><br>
-    Это главная страница сайта<br>
-    <i>Сайт пока в разработке...</i>
-    <p><a href="/items">Список товаров </a></p>
-</body>
-</html>
+
+{% comment %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Main page</title>
+    </head>
+    
+    <body>
+       
+        <header>
+            /<a href="/">Home</a>/<a href="/items">Items</a>/<a href="/about">About</a>
+        </header>
+    
+        <h1>Приветствую!</h1>
+        Меня зовут <i>{{name}}</i><br>
+        Моя почта: <i>{{email}}</i><br><br>
+        Это главная страница сайта<br>
+        <i>Сайт пока в разработке...</i>
+        <p><a href="/items">Список товаров </a></p>
+    </body>
+    </html>
+{% endcomment %}
+

@@ -1,5 +1,31 @@
+{% extends "base.html" %}
+
+{% comment %} {% block  style%}
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+{% endblock  %} {% endcomment %}
+
+{% block  content%}
+<h1>Список товаров</h1>
+
+<div class="items">
+        {% for item in items %}
+        <div class="item">
+            <a href="/item/{{ item.id }}">
+                <a href="{% url 'item-detail' item.id %}">
+                <p class="item_name">{{ item.name }} </p>
+                <p>Бренд: {{ item.brand }} </p>
+                <p>Описание товара:</p>
+                <p>{{ item.description }}</p>
+            </a>
+        </div>
+        {% endfor %}
+</div>
+{% endblock  %}
+
+
+
 {% load static %}
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -79,4 +105,4 @@
     </div>
 
 </body>
-</html>
+</html> {% endcomment %}
