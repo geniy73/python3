@@ -5,7 +5,8 @@
     "fields": {
         "name": "Кроссовки",
         "brand": "abibas",
-        "count": 10
+        "count": 10,
+        "description": "Удобные, для бега"
     }
 },
 {
@@ -14,7 +15,8 @@
     "fields": {
         "name": "Кутка кожаная",
         "brand": "rЫбок",
-        "count": 2
+        "count": 2,
+        "description": "Всегда выглядит круто"
     }
 },
 {
@@ -23,7 +25,8 @@
     "fields": {
         "name": "Вода питьевая",
         "brand": "Ессентуки",
-        "count": 12
+        "count": 12,
+        "description": "Помогает освежиться"
     }
 },
 {
@@ -32,7 +35,8 @@
     "fields": {
         "name": "Комод",
         "brand": "Икеа",
-        "count": 10
+        "count": 10,
+        "description": "Такой теперь нигде не купишь"
     }
 },
 {
@@ -41,7 +45,8 @@
     "fields": {
         "name": "Брюки",
         "brand": "Туц",
-        "count": 0
+        "count": 0,
+        "description": "Их всё равно нет("
     }
 }
 ]
