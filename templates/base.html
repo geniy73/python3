@@ -1,11 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    {% block title %}
+    {% endblock %}
+
     {% block style %}
         {# Это общая css для всех страниц #}
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="static/css/style.css">
         {# Но каждая страница может содержать доп.уникальные css #}
     {% endblock %}
 </head>
