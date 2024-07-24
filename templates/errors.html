@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+{% block title %}
+Error
+{% endblock %}
+
+{% block  content%}
+{{ error }}
+{% endblock  %}<
+    
+{% comment %} 
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,6 +20,6 @@
         / <a href="/"> Home </a> / <a href="/items"> Items </a> / <a href="/about"> About </a>        
     </header>
     
-    {{ error }}
+
 </body>
-</html>
+</html> {% endcomment %}
