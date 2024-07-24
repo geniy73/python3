@@ -1,26 +1,18 @@
-from django.http import HttpResponse
-from django.http import HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
-from .models import Item
+from MainApp.models import Item
+# Нужный тип исключения для get_item()
 from django.core.exceptions import ObjectDoesNotExist
-
 # Create your views here.
-# author = {
-#     "Имя" : "Иван",
-#     "Отчество" : "Петрович",
-#     "Фамилия" : "Иванов",
-#     "Телефон" : "8-923-600-01-02",
-#     "email" : "ivan@mail.ru",
-# }
-
 
 
 def home(request):
     context = {
         "name": "Петров Иван Николаевич",
-        "email": "my_email@mail.com"
+        "email": "my_email@mail.ru"
     }
-    return render(request, 'index.html', context)
+    return render(request, "index.html", context)
+
 
 def about(request):
     author = {
@@ -32,6 +24,7 @@ def about(request):
     }
     return render(request, "about.html", {"author": author})
 
+
 def get_item(request, item_id):
     """ По указанному id возвращаем имя и кол-во элемента """
     try:
@@ -39,11 +32,17 @@ def get_item(request, item_id):
     except ObjectDoesNotExist:
         return render(request, "errors.html", {"error": f"Item with id={item_id} not found."})
     else:
-        context= {"item": item}
+        colors = item.colors.all()
+        context= {
+            "item": item,
+            "colors": colors
+            }
         return render(request, "item_page.html", context)
 
-def items_list(request):
+
+def get_items(request):
+    items = Item.objects.all()
     context = {
-        "items": Item.objects.all()
+        "items": items
     }
-    return render(request, 'items_list.html', context)
+    return render(request, "items_list.html", context)
