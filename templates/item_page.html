@@ -1,63 +1,23 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>Item</title>
-{% endblock %}
-
-{% block  content%}
-<h2> Имя: {{item.name}} </h2>
-<div>
-     Бренд: {{item.brand}}
-</div>
-<div>
-     Количество: {{item.count | default:"Товар отсутствует"}}
-</div>
-<div>
-    Описание: {{item.description}}
-</div>
-
-
-{% if item.count %}
-<p> Количество: {{item.count}} </p>
-{% else %}
-<p> Товара нет на складе! </p>
-{% endif %} 
-<p><a href="/items">Назад к списку товаров </a></p>
+    Item page
 {% endblock  %}
 
+{% block content %}
+    {{ block.super }}
 
-
-
-{% comment %} <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Item</title>
-</head>
-<body>
-
-    <header>
-        /<a href="/">Home</a>/<a href="/items">Items</a>/<a href="/about">About</a>
-    </header>
-
-    <h2> Имя: {{item.name}} </h2>
+    <h2> Имя: {{ item.name }} </h2>
     <div>
-         Бренд: {{item.brand}}
+        Бренд: {{ item.brand }}
     </div>
     <div>
-         Количество: {{item.count | default:"Товар отсутствует"}}
-    </div>
+        Количество: {{ item.count | default:"Товар отсутствует" }}
+    </div>       
     <div>
-        Описание: {{item.description}}
-   </div>
+        Описание: {{ item.description }}
+    </div>
 
+    <p> <a href="{% url "items-list" %}"> Назад к списку товаров </a></p>
 
-    {% if item.count %}
-    <p> Количество: {{item.count}} </p>
-    {% else %}
-    <p> Товара нет на складе! </p>
-    {% endif %} 
-    <p><a href="/items">Назад к списку товаров </a></p>
-</body>
-</html> {% endcomment %}
+{% endblock %}

@@ -1,42 +1,23 @@
 {% extends "base.html" %}
 
-{% block title %}
-<title>Main page</title>
-{% endblock %}
+{% load static %}
 
-{% block  content%}
-<h1>Приветствую!</h1>
-Меня зовут <i>{{name}}</i><br>
-Моя почта: <i>{{email}}</i><br><br>
-Это главная страница сайта<br>
-<i>Сайт пока в разработке...</i>
-<p><a href="/items">Список товаров </a></p>
+{% block title %}
+    Homepage
 {% endblock  %}
 
+{% block content %}
+    {{ block.super }}
+    <br>
 
+    <img width="50px" src="{% static "images/django.svg" %}" alt="my-image">
 
-{% comment %}
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Main page</title>
-    </head>
-    
-    <body>
-       
-        <header>
-            /<a href="/">Home</a>/<a href="/items">Items</a>/<a href="/about">About</a>
-        </header>
-    
-        <h1>Приветствую!</h1>
-        Меня зовут <i>{{name}}</i><br>
-        Моя почта: <i>{{email}}</i><br><br>
-        Это главная страница сайта<br>
-        <i>Сайт пока в разработке...</i>
-        <p><a href="/items">Список товаров </a></p>
-    </body>
-    </html>
-{% endcomment %}
+    <h1>Приветствую!</h1>
 
+    Меня зовут: <i> {{ name }}. </i><br>
+    Мой email: <i> {{ email }} </i><br><br>
+
+    Это главная страница сайта.<br>
+    <i>Это сайт пока в разработке ...</i>
+
+{% endblock  %}

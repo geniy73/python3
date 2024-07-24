@@ -1,24 +1,25 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
+{% load static %}
+
 <head>
     <meta charset="UTF-8">
-    {% block title %}
-    {% endblock %}
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+            Document
+        {% endblock  %}
+    </title>
     {% block style %}
-        {# Это общая css для всех страниц #}
-        <link rel="stylesheet" href="static/css/style.css">
-        {# Но каждая страница может содержать доп.уникальные css #}
-    {% endblock %}
+        <link rel="stylesheet" href="{% static "css/style.css" %}">
+    {% endblock  %}
 </head>
+
 <body>
-    {% include 'header.html'%}
-<main>
-    {#  Содержимое этого блока уникально на каждой странице #}
     {% block content %}
-    {% endblock %}
-</main>
-{% include 'footer.html'%}
+        {% include "header.html" %}
+    {% endblock  %}
 </body>
+
 </html>
